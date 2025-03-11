@@ -1,0 +1,44 @@
+.todo-container {
+    margin: auto;
+    width: 49vw;
+
+}
+
+.input {
+    border-radius: 6px;
+    color: rgb(0, 0, 0);
+    border: none;
+    background-color: hsl(0deg 0% 75.28%);
+    height: 4vh;
+    width: 78%;
+}
+
+.todo-button {
+    margin-left: 10px;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    background-color: hsl(199.94deg 41.72% 43.78%);
+    cursor: pointer;
+    height: 3vh;
+    width: 14vh;
+}
+
+.todo-button:hover {
+    background-color: hsl(200, 42%, 55%);
+}
+
+.list {
+    border-radius: 6px;
+    padding-bottom: 10px;
+    margin: auto;
+    margin-top: 10px;
+    background-color: hsl(0deg 0% 75.28%);
+    width: 49vw;
+}
+
+.task {
+    padding: 11px;
+    text-align: left;
+    border-bottom: 1px solid #5e5d5d; 
+}
