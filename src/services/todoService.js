@@ -1,4 +1,4 @@
-import { ref, push, set, onValue } from "firebase/database";
+import { ref, push, set, onValue, update, remove } from "firebase/database";
 import { auth, db } from "../firebase";
 
 export const addTodo = (todoItem) => {
@@ -39,4 +39,33 @@ export const getTodos = (setData) => {
             setData(todosArray)
         }
     })
+}
+
+export const toggleTodo = (todoId, curCompleted) => {
+    const user = auth.currentUser
+    if(!user) {
+        console.log("User not logged in!")
+        return
+    }
+
+    const uid = user.uid
+    const todoRef = ref(db, `todos/${uid}/${todoId}`)
+
+    update(todoRef, {completed: !curCompleted})
+        .then(() => console.log("Todo updated"))
+        .catch((e)=> console.error("Failed to update with: ", e))
+} 
+
+export const deleteTodo = (todoId) => {
+    const user = auth.currentUser
+    if(!user) {
+        console.log("User not logged in!")
+    }
+
+    const uid = user.uid
+    const todoRef = ref(db, `todos/${uid}/${todoId}`)
+
+    remove(todoRef)
+        .then(() => console.log("Todo removed!"))
+        .catch((e) => console.error("Failed to remove: ", e))
 }
