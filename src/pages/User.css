@@ -1,33 +1,13 @@
-.container-user {
-    margin-top: 15%;
-}
+
 
 .container-form {
-    margin: 10px;
+    margin: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.input {
-    border-radius: 3px;
-    color: rgb(0, 0, 0);
-    border: none;
-    background-color: hsl(0deg 0% 75.28%);
-    height: 4vh;
-    width: 30%;
-}
-
 .button {
-    border-radius: 3px;
-    color: white;
-    border: none;
-    background-color:hsl(199.94deg 41.72% 43.78%);
-    cursor: pointer;
     height: 3vh;
     width: 14vh;
-}
-
-.button:hover {
-    background-color:hsl(200, 42%, 55%);
 }

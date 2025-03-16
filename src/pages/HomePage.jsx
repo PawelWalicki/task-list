@@ -6,6 +6,7 @@ import { Todo } from "../components/Todo";
 import './HomePage.css'
 import { useEffect, useState } from "react";
 import { getTodos } from "../services/todoService";
+import { Button } from "@mui/material";
 
 export const HomePage = () => {
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ export const HomePage = () => {
 
     useEffect(() => {
         getTodos(setTodos)
-    },[user])
+    }, [user])
 
     if (pending) {
         return (
@@ -33,8 +34,14 @@ export const HomePage = () => {
             <div className="container-home">
                 <div> User not logged in! </div>
                 <div className="container-button">
-                    <button className="button" onClick={() => navigate("./user")}>Sign in!</button>
-                    <button className="button" onClick={() => navigate("./register")}>Register!</button>
+                    <Button className="button" onClick={() => navigate("./user")} style={{
+                        backgroundColor: "#417f9e",
+                        color: "#ffffff",
+                    }}> Sign in!</Button>
+                    <Button className="button" onClick={() => navigate("./register")} style={{
+                        backgroundColor: "#417f9e",
+                        color: "#ffffff",
+                    }}>Register!</Button>
                 </div>
             </div>
         )
@@ -46,11 +53,14 @@ export const HomePage = () => {
             <div className="info-user">
                 <p className="user">Welcome {user.email}</p>
 
-                <div>
-                    <button type="submit" className="button" onClick={(e) => logoutUser(e)}>Logout</button>
+                <div>  
+                    <Button type="submit" className="button" onClick={(e) => logoutUser(e)} style={{
+                        backgroundColor: "#417f9e",
+                        color: "#ffffff",
+                    }}>Logout</Button>
                 </div>
             </div>
-            <Todo todos={todos}/>
+            <Todo todos={todos} />
         </div>
     )
 }

@@ -15,8 +15,9 @@
 
 .info-user {
     margin-left: 10px;
+    margin-right: 10px;
     display: grid;
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 10fr 1fr;
     align-items: center;
 }
 
@@ -25,15 +26,7 @@
 }
 
 .button {
-    border-radius: 3px;
-    color: white;
-    border: none;
-    background-color: hsl(199.94deg 41.72% 43.78%);
-    cursor: pointer;
     height: 3vh;
     width: 14vh;
 }
 
-.button:hover {
-    background-color: hsl(200, 42%, 55%);
-}

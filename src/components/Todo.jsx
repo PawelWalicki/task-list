@@ -1,25 +1,16 @@
-import { useState } from "react"
-import { addTodo } from "../services/todoService"
 import './Todo.css'
 import { TodoList } from "./TodoList"
+import { Container, Grid2 } from "@mui/material"
+import { AddTodo } from "./AddTodo"
 
 export const Todo = ({ todos }) => {
-    const [value, setValue] = useState("")
-
-    const handleAddTodo = () => {
-        addTodo({ text: value, completed: false })
-        setValue("")
-    }
     return (
 
-        <div style={{ maxWidth: 400, margin:"auto", padding:20}}>
-
-            <div className="todo-container">
-                <input className="input" type="text" value={value} onChange={(e) => setValue(e.target.value)}>
-                </input>
-                <button className="todo-button" onClick={() => handleAddTodo()}>ADD</button>
-            </div>
-            <TodoList todos={todos}></TodoList>
-        </div>
+        <Container>
+            <AddTodo />
+            <Grid2>
+                <TodoList todos={todos}></TodoList>
+            </Grid2>
+        </Container>
     )
 }

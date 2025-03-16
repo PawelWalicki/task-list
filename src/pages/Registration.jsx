@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import './Registration.css'
+import { Button, Container, Grid2, TextField } from '@mui/material';
 
 
 export const Registration = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
+    const [notice, setNotice] = useState("");
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -15,45 +17,77 @@ export const Registration = () => {
                 const user = userCredentials.user
                 console.log(user)
             })
+            .catch(e => {
+                setNotice("Requirements for email or password are not met!")
+            })
     }
 
     return (
-        <div>
-            <div className="container-registration">
-                <h1 className='title'> Registration </h1>
-                <form className="container-form">
-
-                    <input
-                        className="input"
+        <Container>
+            <h1 className='title'> Registration </h1>
+            {"" !== notice &&
+                <div role="alert">
+                    {notice}
+                </div>
+            }
+            <Grid2 container spacing={2} size="grow" display="flex" justifyContent="center" alignItems="center">
+                <Grid2 size={7}>
+                    <TextField
                         type="email"
                         label="Email address"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        placeholder="Email address"
+                        fullWidth
+                        sx={{
+                            "& .MuiOutlinedInput-root": {
+                                color: "#417f9e",
+                                "& .MuiOutlinedInput-notchedOutline": {
+                                    borderColor: "#417f9e",
+                                    borderWidth: "2px",
+                                },
+                            },
+                            "& .MuiInputLabel-outlined": {
+                                color: "#417f9e",
+                            },
+                        }}
                     />
-                    <label htmlFor="email-address"> Email address </label> 
-
-                    <input
-                        className="input"
+                </Grid2>
+                <Grid2 size={7}>
+                    <TextField
                         type="password"
                         label="Create password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        placeholder="Password"
+                        fullWidth
+                        sx={{
+                            "& .MuiOutlinedInput-root": {
+                                color: "#417f9e",
+                                "& .MuiOutlinedInput-notchedOutline": {
+                                    borderColor: "#417f9e",
+                                    borderWidth: "2px",
+                                },
+                            },
+                            "& .MuiInputLabel-outlined": {
+                                color: "#417f9e",
+                            },
+                        }}
                     />
-                    <label htmlFor="password"> Password </label>
-
-                    <button
+                </Grid2>
+                <Grid2 display="flex" justifyContent="center" alignItems="center" size={7}>
+                    <Button
                         className="button"
                         type="submit"
                         onClick={onSubmit}
-                    >
+                        style={{
+                            backgroundColor: "#417f9e",
+                            color: "#ffffff",
+                        }}>
                         Sign up
-                    </button>
-                </form>
-            </div>
-        </div>
+                    </Button>
+                </Grid2>
+            </Grid2>
+        </Container>
     )
 }
