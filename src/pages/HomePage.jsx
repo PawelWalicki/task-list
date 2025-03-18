@@ -1,4 +1,4 @@
-import { auth, db } from "../firebase"
+import { auth} from "../firebase"
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { useAuth } from "../hooks/useAuth";
