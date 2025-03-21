@@ -1,4 +1,4 @@
-import { auth} from "../firebase"
+import { auth } from "../firebase"
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { useAuth } from "../hooks/useAuth";
@@ -7,6 +7,7 @@ import './HomePage.css'
 import { useEffect, useState } from "react";
 import { getTodos } from "../services/todoService";
 import { Button } from "@mui/material";
+import { Footer } from "../components/Footer";
 
 export const HomePage = () => {
     const navigate = useNavigate();
@@ -43,6 +44,7 @@ export const HomePage = () => {
                         color: "#ffffff",
                     }}>Register!</Button>
                 </div>
+                <Footer />
             </div>
         )
     }
@@ -51,9 +53,10 @@ export const HomePage = () => {
     return (
         <div >
             <div className="info-user">
+                <img className="img" src="/task-icon2.png"></img>
                 <p className="user">Welcome {user.email}</p>
 
-                <div>  
+                <div>
                     <Button type="submit" className="button" onClick={(e) => logoutUser(e)} style={{
                         backgroundColor: "#417f9e",
                         color: "#ffffff",
@@ -61,6 +64,7 @@ export const HomePage = () => {
                 </div>
             </div>
             <Todo todos={todos} />
+            <Footer />
         </div>
     )
 }

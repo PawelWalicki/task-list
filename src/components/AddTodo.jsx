@@ -1,6 +1,8 @@
 import { addTodo } from "../services/todoService"
 import { Button, Grid2, TextField } from "@mui/material"
 import { useState } from "react"
+import "./AddTodo.css"
+
 export const AddTodo = () => {
 
     const [value, setValue] = useState("")

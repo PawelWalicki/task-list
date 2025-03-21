@@ -1,12 +1,3 @@
-
-
-.container-form {
-    margin: 15%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .button {
     height: 3vh;
     width: 14vh;
